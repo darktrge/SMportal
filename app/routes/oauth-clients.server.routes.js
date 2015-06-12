@@ -10,7 +10,7 @@ module.exports = function(app) {
 		.post(users.requiresLogin, oauthClients.create);
 
 	app.route('/oauth-clients/:oauthClientId')
-		.get(oauthClients.read)
+		.get(users.requiresLogin, oauthClients.hasAuthorization, oauthClients.read)
 		.put(users.requiresLogin, oauthClients.hasAuthorization, oauthClients.update)
 		.delete(users.requiresLogin, oauthClients.hasAuthorization, oauthClients.delete);
 

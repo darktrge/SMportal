@@ -13,8 +13,7 @@ var mongoose = require('mongoose'),
  */
 exports.create = function(req, res) {
 	var oauthClient = new OAuthClient(req.body);
-	oauthClient.user = req.user;
-
+	oauthClient.owner_id = req.user._id;
 	oauthClient.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -38,9 +37,7 @@ exports.read = function(req, res) {
  */
 exports.update = function(req, res) {
 	var oauthClient = req.oauthClient ;
-
 	oauthClient = _.extend(oauthClient , req.body);
-
 	oauthClient.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -72,7 +69,7 @@ exports.delete = function(req, res) {
  * List of Oauth clients
  */
 exports.list = function(req, res) {
-    OAuthClient.find().sort('-created').populate('user', 'displayName').exec(function(err, oauthClients) {
+    OAuthClient.find({owner_id:req.user.id}).sort('-created').exec(function(err, oauthClients) {
 		//console.log(oauthClients);
         if (err) {
 			return res.status(400).send({
@@ -88,7 +85,8 @@ exports.list = function(req, res) {
  * Oauth client middleware
  */
 exports.oauthClientByID = function(req, res, next, id) {
-    OAuthClient.findById(id).populate('user', 'displayName').exec(function(err, oauthClient) {
+    //OAuthClient.findById(id).populate('user', 'displayName').exec(function(err, oauthClient) {
+    OAuthClient.findById(id).exec(function(err, oauthClient) {
         if (err) return next(err);
 		if (! oauthClient) return next(new Error('Failed to load Oauth client ' + id));
 		req.oauthClient = oauthClient ;
@@ -100,7 +98,7 @@ exports.oauthClientByID = function(req, res, next, id) {
  * Oauth client authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
-	if (req.oauthClient.user.id !== req.user.id) {
+	if (req.oauthClient.owner_id !== req.user.id) {
 		return res.status(403).send('User is not authorized');
 	}
 	next();

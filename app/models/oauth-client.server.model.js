@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+    validator = require('validator'),
     Schema = mongoose.Schema,
     utils = require('../lib/utils');
 
@@ -15,6 +16,10 @@ var OAuthClientSchema = new Schema({
         type: String,
         default: '',
         required: 'Please fill Oauthclient name',
+        trim: true
+    },
+    owner_id: {
+        type: String,
         trim: true
     },
     clientId: {
@@ -34,6 +39,13 @@ var OAuthClientSchema = new Schema({
     trusted_client: {
         type: Boolean,
         default: false
+    },
+    allowedDomainURL: {
+        type: String,
+        default: '',
+        required: 'allowed Domain URL field is required',
+        validate: [ validator.isURL, 'invalid URL' ],
+        trim: true
     }
 });
 

@@ -11,7 +11,8 @@ angular.module('oauth-clients').controller('OauthClientsController', ['$scope', 
 			var oauthClient = new OauthClients ({
 				name: this.name,
 				clientKey: this.clientKey,
-                clientSecret: this.clientSecret
+                clientSecret: this.clientSecret,
+				allowedDomainURL: this.allowedDomainURL
 			});
 
 			// Redirect after save
@@ -45,7 +46,6 @@ angular.module('oauth-clients').controller('OauthClientsController', ['$scope', 
 		// Update existing Oauth client
 		$scope.update = function() {
 			var oauthClient = $scope.oauthClient;
-
 			oauthClient.$update(function() {
 				$location.path('oauth-clients/' + oauthClient._id);
 			}, function(errorResponse) {

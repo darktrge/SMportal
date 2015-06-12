@@ -3,11 +3,16 @@
 		<h1 data-ng-bind="oauthClient.name"></h1>
         id(internal): <span data-ng-bind="oauthClient._id"></span>
         <br>
-        Public: <span data-ng-bind="oauthClient.clientId"></span>
+		Public key: <span data-ng-bind="oauthClient.clientId"></span>
         <br>
-        Secret: <span data-ng-bind="oauthClient.clientSecret"></span>
+        Secret key: <span data-ng-bind="oauthClient.clientSecret"></span>
+		<br>
+		allowedDomainURL: <span data-ng-bind="oauthClient.allowedDomainURL"></span>
 	</div>
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == oauthClient.user._id))">
+	<script>
+		console.log(authentication.user._id == oauthClient.user._id,'dadasda');
+	</script>
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == oauthClient.owner_id))">
 		<a class="btn btn-primary" href="/#!/oauth-clients/{{oauthClient._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
