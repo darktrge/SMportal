@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 //Access tokens service used to communicate Access tokens REST endpoints
 angular.module('access-tokens').factory('AccessTokens', ['$resource',
 	function($resource) {
@@ -10,4 +11,4 @@ angular.module('access-tokens').factory('AccessTokens', ['$resource',
 			}
 		});
 	}
-]);
+]);*/

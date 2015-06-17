@@ -1,9 +1,9 @@
 'use strict';
 
 //Oauth clients service used to communicate Oauth clients REST endpoints
-angular.module('oauth-clients').factory('OauthClients', ['$resource',
+angular.module('oauth-clients').factory('AdminOauthClients', ['$resource',
 	function($resource) {
-		return $resource('oauth-clients/:oauthClientId', { oauthClientId: '@_id'
+		return $resource('/admin/oauth-clients/:oauthClientId', { oauthClientId: '@_id'
 		}, {
 			update: {
 				method: 'PUT'

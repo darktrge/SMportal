@@ -1,0 +1,27 @@
+<section data-ng-controller="AdminUserController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="user.name"></h1>
+        id(internal): <span data-ng-bind="user._id"></span>
+        <br>
+		username: <span data-ng-bind="user.username"></span>
+        <br>
+        first name: <span data-ng-bind="user.name"></span>
+		<br>
+		email: <span data-ng-bind="user.email"></span>
+	</div>
+	<div class="pull-right">
+		<a class="btn btn-primary" href="/#!/admin/users/{{user._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<!--<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>-->
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="user.created | date:'mediumDate'"></span>
+			by
+		</em>
+	</small>
+</section>

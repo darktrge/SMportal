@@ -6,8 +6,8 @@ module.exports = {
 		title: 'SMPortal - Development Environment'
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: process.env.FACEBOOK_ID || '453259854843910',
+		clientSecret: process.env.FACEBOOK_SECRET || 'c616b1eec2ac3743ae1dbd0b65d139f8',
 		callbackURL: '/auth/facebook/callback'
 	},
 	twitter: {

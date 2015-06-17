@@ -142,5 +142,34 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 		}
 	});
 };
+//list users, used by admin
+UserSchema.statics.list = function(req, res) {
+	var _this = this;
+
+	_this.find({
+	}, function(err, users) {
+		if (!err) {
+			res.jsonp(users);
+		} else return res.status(400).send({
+			message: errorHandler.getErrorMessage(err)
+		});
+	});
+};
+
+//wtf is this doing here?????
+/*
+exports.list = function(req, res) {
+	OAuthClient.find({owner_id:req.user.id}).sort('-created').exec(function(err, oauthClients) {
+		//console.log(oauthClients);
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(oauthClients);
+		}
+	});
+};
+*/
 
 mongoose.model('User', UserSchema);
