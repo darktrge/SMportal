@@ -24,18 +24,18 @@ module.exports = {
 		js: 'public/dist/application.min.js'
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: process.env.FACEBOOK_ID || '453259854843910',
+		clientSecret: process.env.FACEBOOK_SECRET || 'c616b1eec2ac3743ae1dbd0b65d139f8',
 		callbackURL: '/auth/facebook/callback'
 	},
 	twitter: {
-		clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-		clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+		clientID: process.env.TWITTER_KEY || 'HUBqecagRfV16hfMsxAXXj3io',
+		clientSecret: process.env.TWITTER_SECRET || '1Zsa0plEzDXNtySXgQQlXn1IVi9NlivKanNUj2Yoesp8MUlegZ',
 		callbackURL: '/auth/twitter/callback'
 	},
 	google: {
-		clientID: process.env.GOOGLE_ID || 'APP_ID',
-		clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+		clientID: process.env.GOOGLE_ID || '36035335928-lgirkkh7aur2dillu8jl77u9jnmjb1ni.apps.googleusercontent.com',
+		clientSecret: process.env.GOOGLE_SECRET || 'wxX6MhYctmF8Ync3mP-VbNwg',
 		callbackURL: '/auth/google/callback'
 	},
 	linkedin: {
