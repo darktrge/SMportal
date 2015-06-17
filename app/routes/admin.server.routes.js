@@ -9,6 +9,7 @@ module.exports = function(app) {
     app.route('/admin').get(users.hasAuthorization(['admin']),admin.index);
     app.route('/admin/users').get(users.hasAuthorization(['admin']),admin.listUsers);
     app.route('/admin/users/:userId').get(users.hasAuthorization(['admin']),admin.userByID);
+    app.route('/admin/users/:userId').put(users.hasAuthorization(['admin']),admin.updateUser);
 
     app.param('userId', users.userByID);
 

@@ -45,6 +45,22 @@ exports.userByID = function(req, res) {
     });
 };
 
+exports.updateUser = function(req, res) {
+    var user = req.user;
+
+    user = _.extend(user, req.body);
+
+    user.save(function(err) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.json(user);
+        }
+    });
+};
+
 exports.listOauthClients = function(req, res) {
     OAuthClient.find().sort('-created').exec(function(err, oauthClients) {
         //console.log(oauthClients);

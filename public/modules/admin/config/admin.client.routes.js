@@ -14,8 +14,12 @@ angular.module('admin').config(['$stateProvider',
 			templateUrl: '/modules/admin/views/list-users.client.view.html'
 		}).
         state('showUser', {
-			url: '/admin/user/:userId',
+			url: '/admin/users/:userId',
 			templateUrl: '/modules/admin/views/view-user.client.view.html'
+		}).
+		state('editUser', {
+			url: '/admin/users/:userId/edit',
+			templateUrl: '/modules/admin/views/edit-profile.client.view.html'
 		}).
         state('admin/listOauthClients', {
 			url: '/admin/oauth-clients',
@@ -24,8 +28,13 @@ angular.module('admin').config(['$stateProvider',
         state('admin/showOauthClient/', {
 			url: '/admin/oauth-clients/:oauthClientId',
 			templateUrl: '/modules/admin/views/view-oauth-client.client.view.html'
+		}).
+        state('admin/editOauthClient/', {
+			url: '/admin/oauth-clients/:oauthClientId/edit',
+			templateUrl: '/modules/admin/views/edit-oauth-client.client.view.html'
 		});
     }
+
 ]);
 
 /*

@@ -22,16 +22,34 @@ angular.module('admin').controller('AdminUserController', ['$scope', '$statePara
 		};
 
 
-		// Find a list of Oauth clients
+		// Find a list of users
 		$scope.find = function() {
+			console.log('find user pokrenut');
 			$scope.users = Userdata.query();
 		};
 
-		// Find existing Oauth client
+		// Find existing users
 		$scope.findOne = function() {
+			console.log('findOne user pokrenut');
 			$scope.user = Userdata.get({
 				userId: $stateParams.userId
 			});
+		};
+
+		$scope.updateUserProfile = function(isValid) {
+			if (isValid) {
+				$scope.success = $scope.error = null;
+				var user = new Userdata($scope.user);
+
+				user.$update(function(response) {
+					$scope.success = true;
+					//Authentication.user = response;
+				}, function(response) {
+					$scope.error = response.data.message;
+				});
+			} else {
+				$scope.submitted = true;
+			}
 		};
 	}
 ]);
@@ -62,6 +80,22 @@ angular.module('admin').controller('AdminOauthClientController', ['$scope', '$st
 			$scope.oauthClient = AdminOauthClients.get({
 				oauthClientId: $stateParams.oauthClientId
 			});
+		};
+
+		$scope.remove = function(oauthClient) {
+			if ( oauthClient ) {
+				oauthClient.$remove();
+
+				for (var i in $scope.oauthClients) {
+					if ($scope.oauthClients [i] === oauthClient) {
+						$scope.oauthClients.splice(i, 1);
+					}
+				}
+			} else {
+				$scope.oauthClient.$remove(function() {
+					$location.path('/admin/oauth-clients');
+				});
+			}
 		};
 	}
 ]);
