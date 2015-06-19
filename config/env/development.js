@@ -33,7 +33,6 @@ module.exports = {
 	mailer: {
 		from: process.env.MAILER_FROM || 'marjanovic.danijel@gmail.com',
 		options: {
-			//service: process.env.MAILER_SERVICE_PROVIDER || 'ssl://smtp.googlemail.com',
 			service: process.env.MAILER_SERVICE_PROVIDER || 'gmail',
 			auth: {
 				user: process.env.MAILER_EMAIL_ID || 'marjanovic.danijel@gmail.com',
