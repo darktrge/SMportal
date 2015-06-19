@@ -47,8 +47,20 @@ exports.userByID = function(req, res) {
 
 exports.updateUser = function(req, res) {
     var user = req.user;
+    //console.log('req.user',user)
+    //console.log('req.body',req.body)
 
+    delete user.password;
+    delete user.salt;
+    delete req.body.password;
+    delete req.body.salt;
+
+    //console.log('after deleting pass user:',user)
+    //console.log('after deleting password on request.body:',req.body)
+    //console.log('extended user:',user)
     user = _.extend(user, req.body);
+    user.updated = Date.now();
+    user.displayName = user.firstName + ' ' + user.lastName;
 
     user.save(function(err) {
         if (err) {

@@ -60,6 +60,8 @@ exports.forgot = function(req, res, next) {
 				appName: config.app.title,
 				url: 'http://' + req.headers.host + '/auth/reset/' + token
 			}, function(err, emailHTML) {
+				console.log("emailHTML:",emailHTML);
+				console.log("err in template:",err);
 				done(err, emailHTML, user);
 			});
 		},
@@ -78,7 +80,7 @@ exports.forgot = function(req, res, next) {
 						message: 'An email has been sent to ' + user.email + ' with further instructions.'
 					});
 				}
-
+				console.log('smtp transport error:',err);
 				done(err);
 			});
 		}
