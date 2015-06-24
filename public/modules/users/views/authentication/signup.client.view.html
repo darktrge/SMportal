@@ -1,4 +1,5 @@
 <section class="row" data-ng-controller="AuthenticationController">
+	<!--
 	<h3 class="col-md-12 text-center">Sign up using your social accounts</h3>
 	<div class="col-md-12 text-center">
 		<a href="/auth/facebook" class="undecorated-link">
@@ -17,8 +18,13 @@
 			<img src="/modules/users/img/buttons/github.png">
 		</a>
 	</div>
-	<h3 class="col-md-12 text-center">Or with your email</h3>
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+	-->
+	<div class="">
+		<img alt="SmithMicro" class="img-responsive text-center centered_element" src="modules/core/img/brand/logo.png" />
+	</div>
+
+	<div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
+		<h3 class="col-md-12 text-center">Register with your email</h3>
 		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
 			<fieldset>
 				<div class="form-group">
@@ -41,12 +47,46 @@
 					<label for="password">Password</label>
 					<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
 				</div>
+				<div class="form-group">
+					By clicking "Sign up" I agree that:
+					<br />
+					I have red and accepted the
+					<a href="" ng-click="$event.preventDefault();">Terms of Use</a>
+					and
+					<a href="" ng-click="$event.preventDefault();">Privacy Policy.</a>
+					<br />
+					Smith Micro may keep me informed via email about products and services.
+					<a href="" ng-click="$event.preventDefault();">Learn more.</a>
+				</div>
 				<div class="text-center form-group">
 					<button type="submit" class="btn btn-large btn-primary">Sign up</button>&nbsp; or&nbsp;
-					<a href="/#!/signin" class="show-signup">Sign in</a>
+					Already have a Smith Micro Account? <a href="/#!/signin" class="show-signup">Sign in</a>
 				</div>
 				<div data-ng-show="error" class="text-center text-danger">
 					<strong data-ng-bind="error"></strong>
+				</div>
+				<div class="form-group ssl_info">
+					<div class="center">
+						<div class="ssl_icon left_side">
+							icon goes here
+						</div>
+						<div class="ssl_content left_side">
+							<div class="left_side">Secure Server</div>
+							<div class="ssl_info_control left_side">
+								<a target="_self" ng-click="toggle()" data-target="#ssl_info_text" ng-model="showMeText">
+									{{showMeText}}
+								</a>
+							</div>
+							<div class="arrow_container left_side">
+								<div class="arrow-down" ng-show="!visible"></div>
+								<div class="arrow-up" ng-show="visible"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group" id="ssl_info_text" ng-show="visible">
+					At Smith Micro, we're serious about protecting your personal information.
+					To ensure your account details are safe, we use Secure Sockets Layer (SSL), and industry standard for encrypting private data over the internet.
 				</div>
 			</fieldset>
 		</form>

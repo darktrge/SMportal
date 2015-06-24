@@ -30,5 +30,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.error = response.message;
 			});
 		};
+
+		$scope.visible = true;
+		$scope.showMeText = 'show me less';
+		$scope.toggle = function() {
+			$scope.visible = !$scope.visible;
+			if($scope.showMeText=='show me less'){
+				$scope.showMeText='show me more';
+			}else{
+				$scope.showMeText='show me less';
+			}
+		};
 	}
 ]);
