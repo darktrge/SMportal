@@ -27,14 +27,17 @@
 
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
 		<form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
+			<div class="text-center head">
+				<!--<img src="/assets/img/sm_icon_medium.png" alt="Smith Micro Software"/>-->
+			</div>
 			<h3>Sign in</h3>
 			<fieldset>
 				<div class="form-group">
-					<label for="username">Username</label>
+					<!--<label for="username">Username</label>-->
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
 				</div>
 				<div class="form-group">
-					<label for="password">Password</label>
+					<!--<label for="password">Password</label>-->
 					<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
 				</div>
 				<div class="forgot-password">
@@ -43,7 +46,7 @@
 				<div class="text-center form-group">
 					<button type="submit" class="btn btn-primary">Sign in</button>
 				</div>
-				<div class="text-center form-group">
+				<div class="form-group text-center">
 					Not a member yet? <a href="/#!/signup">Get a SmithMicro Account</a>
 				</div>
 				<div data-ng-show="error" class="text-center text-danger">
@@ -52,7 +55,6 @@
 				<div class="form-group ssl_info">
 					<div class="center">
 						<div class="ssl_icon left_side">
-							icon goes here
 						</div>
 						<div class="ssl_content left_side">
 							<div class="left_side">Secure Server</div>

@@ -1,3 +1,14 @@
+body{
+    font-family: "Trebuchet MS";
+    color: #585858;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+h3{
+
+}
+
 .left_side{
     float:left;
 }
@@ -10,37 +21,59 @@
 .navbar-brand .logo {
     background: transparent url("/modules/core/img/brand/logo.png") left top no-repeat;
     width: 168px;
-    height: 45px;
-    margin: -10px 0 22px 0;
+    height: 40px;
+    margin: -5px 0 22px 0;
     /*margin: 0;*/
     float: left;
 }
 
 button.btn-primary {
     background:#009DF5;
-
-}
-.signin button.btn-primary{
-    width: 100%;
-    margin-top:15px;
-    margin-bottom:15px;
 }
 
-.signin fieldset{
-    padding: 0 15px;
+.signin{
 }
 
-.signin .ssl_info .center{
-    width:170px;
-    margin:0 auto;
-}
-.signin .ssl_info .ssl_icon{
-    width:35px;
-}
+    .signin h3{
+    }
+    .signin .head,.register .head{
+        margin-top:15px;
+        margin-bottom:-17px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 172px;
+        height: 46px;
+        background: transparent url("/assets/img/sm_icon_medium.png") left top no-repeat
+    }
 
-.signin .ssl_info .ssl_content{
-    width:130px;
-}
+    .signin button.btn-primary{
+        width: 100%;
+        margin-top:15px;
+        margin-bottom:15px;
+    }
+
+    .signin fieldset{
+        padding: 0 15px;
+    }
+
+    .signin .ssl_info .center{
+        width:170px;
+        margin:0 auto;
+    }
+    .signin .ssl_info .ssl_icon{
+        /*width:35px;*/
+        background: transparent url("/assets/img/lock-icon.png") left top no-repeat;
+        width: 24px;
+        height: 33px;
+        margin-right:10px;
+    }
+
+    .signin .ssl_info .ssl_content{
+        width:130px;
+    }
+        #ssl_info_text{
+            font-size:12px;
+        }
 
 button.btn-primary:hover{
     background:#008DE5;
