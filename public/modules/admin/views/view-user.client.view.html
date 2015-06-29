@@ -10,7 +10,13 @@
         first name: <span data-ng-bind="user.lastName"></span>
 		<br>
 		email: <span data-ng-bind="user.email"></span>
+        <br>
+        Roles:
+        <ul>
+            <li ng-repeat="role in user.roles">{{role}}</li>
+        </ul>
 	</div>
+
 	<div class="pull-right">
 		<a class="btn btn-primary" href="/#!/admin/users/{{user._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>

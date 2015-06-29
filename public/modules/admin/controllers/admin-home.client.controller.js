@@ -51,6 +51,11 @@ angular.module('admin').controller('AdminUserController', ['$scope', '$statePara
 				$scope.submitted = true;
 			}
 		};
+
+        $scope.rolesAvailable=['admin','developer','user'];
+        $scope.isRoleChecked = function(role) {
+            return (role in $scope.user.roles);
+        };
 	}
 ]);
 

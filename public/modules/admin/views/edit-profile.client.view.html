@@ -19,6 +19,15 @@
 					<label for="username">Username</label>
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="user.username" placeholder="Username">
 				</div>
+                <div class="form-group">
+                    <label ng-repeat="role in rolesAvailable">
+                        <input type="checkbox" checklist-model="user.roles" checklist-value="role"> {{role}}
+                    </label>
+                </div>
+
+                <!--Available roles: {{rolesAvailable}}
+                Active roles: {{user.roles}}-->
+
 				<div class="text-center form-group">
 					<button type="submit" class="btn btn-large btn-primary">Save Profile</button>
 				</div>
@@ -28,6 +37,7 @@
 				<div data-ng-show="error" class="text-center text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>
+
 			</fieldset>
 		</form>
 	</div>

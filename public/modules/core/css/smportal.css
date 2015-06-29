@@ -137,5 +137,52 @@ button.btn-primary:hover{
 
     border-right:10px solid blue;
 }
+.navbar-toggle{
+    background: transparent url("/assets/img/settings-icon.png") left center no-repeat;
+    width:54px;
+    height:34px;
+}
+
+.navigation_collapse_button{
+    position:relative;
+}
+
+    .navigation-collapse-arrows .arrow-up{
+        width: 13px;
+        height: 6px;
+        background-color: transparent;
+    }
+    .navigation-collapse-arrows .arrow-down{
+        width: 13px;
+        height: 6px;
+        background-color: transparent;
+    }
+    .navigation-collapse-arrows .arrow-up:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 30px;
+        bottom: 13px;
+        width: 0;
+        height: 0;
+        border-bottom: 6px solid white;
+        border-top: 6px solid transparent;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+    }
+    .navigation-collapse-arrows .arrow-down:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 30px;
+        bottom: 5px;
+        width: 0;
+        height: 0;
+        border-bottom: 6px solid transparent;
+        border-top: 6px solid white;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+
+    }
 
 

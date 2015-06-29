@@ -10,9 +10,9 @@ module.exports = function(app) {
 		.post(users.requiresLogin, oauthClients.create);
 
 	app.route('/oauth-clients/:oauthClientId')
-		.get(users.requiresLogin, oauthClients.hasAuthorization, oauthClients.read)
-		.put(users.requiresLogin, oauthClients.hasAuthorization, oauthClients.update)
-		.delete(users.requiresLogin, oauthClients.hasAuthorization, oauthClients.delete);
+		.get(users.requiresLogin, oauthClients.hasAuthorization,users.hasAuthorization(['developer','admin']),oauthClients.read)
+		.put(users.requiresLogin, oauthClients.hasAuthorization, users.hasAuthorization(['developer','admin']),oauthClients.update)
+		.delete(users.requiresLogin, oauthClients.hasAuthorization,users.hasAuthorization(['developer','admin']), oauthClients.delete);
 
 	// Finish by binding the Oauth client middleware
 	app.param('oauthClientId', oauthClients.oauthClientByID);
