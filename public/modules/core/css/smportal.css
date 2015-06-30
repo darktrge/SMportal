@@ -137,6 +137,11 @@ button.btn-primary:hover{
 
     border-right:10px solid blue;
 }
+
+.navbar-inverse{
+    background-color:#484848;
+}
+
 .navbar-toggle{
     background: transparent url("/assets/img/settings-icon.png") left center no-repeat;
     width:54px;
